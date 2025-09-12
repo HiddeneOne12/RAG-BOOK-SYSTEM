@@ -1,0 +1,35 @@
+# RAG System Configuration
+
+# ChromaDB Settings
+CHROMA_PERSIST_DIRECTORY=./chroma_db
+PDF_FOLDER=./pdfs
+
+# Model Settings
+MODEL_NAME=distilgpt2
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+CHUNK_SIZE=500
+CHUNK_OVERLAP=50
+
+# Ollama Settings
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=llama3.2:3b
+
+# OpenRouter API Settings (Primary - Recommended)
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+OPENROUTER_MODEL=meta-llama/llama-3.1-8b-instruct:free
+OPENROUTER_TIMEOUT=30
+
+# API Fallback Settings (OpenAI as backup)
+API_FALLBACK_ENABLED=True
+API_FALLBACK_URL=https://api.openai.com/v1/chat/completions
+API_FALLBACK_MODEL=gpt-3.5-turbo
+API_FALLBACK_TIMEOUT=5
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Setup Instructions:
+# 1. Get an OpenRouter API key from https://openrouter.ai/keys
+# 2. Copy this file to .env
+# 3. Replace 'your_openrouter_api_key_here' with your actual OpenRouter API key
+# 4. Optionally add OpenAI API key for fallback
+# 5. The system will use OpenRouter first, then fallback to Ollama/OpenAI
